@@ -1,0 +1,505 @@
+/*imports*/
+/*@import "normalize";
+@import "fluid_skeleton";*/
+
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,700);
+
+html {
+    font: 100%/1.5em 'PT Sans', sans-serif;
+}
+
+
+header.band {
+    /*background: #4b371f;*/
+	background: white;
+	background-image:url(../images/chengdu_01.jpg);
+	background-repeat: no-repeat;
+	/*background-size: 100%;*/
+    color: white;
+    text-align: center;
+    padding: 8% 0 12% 0;
+}
+
+header.band2 {
+
+	background: white;
+	background-image:none;
+	background-repeat: no-repeat;
+
+    padding: 1% 0 12% 0;
+}
+/**/
+h1, h2, h3 {
+    font-family: 'PT Serif', serif;
+    font-weight: 700;
+    text-align: center;
+
+}
+ 
+header.band h1 {
+    font-size: 3em;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+
+a.button {
+    background: url("../images/sat.png") no-repeat  50% 80% ;
+    text-align: center;
+	background-size: 40%;
+    padding: 1.5em 1.5em;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    /*box-shadow: 0 0.2em 0 #ab3009;*/
+    text-transform: uppercase;
+    /*letter-spacing: 0.1em;*/
+
+         
+    /*transition cross-browser stuff*/
+   -webkit-transition: background 0.2s ease-out;  /* Safari 3.2+, Chrome */
+   -moz-transition: background 0.2s ease-out;  /* Firefox 4-15 */
+    -o-transition: background 0.2s ease-out;  /* Opera 10.5�C12.00 */
+    transition: background 0.2s ease-out;  /* Firefox 16+, Opera 12.50+ */
+}
+
+.linklink a:link, a:visited {
+text-decoration: none;
+color:#999;
+font-weight:bold;
+}
+
+p.small{
+  margin-top: 0em;
+  margin-bottom: 0.5em;
+}
+
+/*a.button:hover {
+    background: #ab3009;
+}*/
+
+@media only screen and (min-width: 767px) { 
+ 
+    body {
+        font-size: 1.125em; /* 18px / 16px */
+        line-height: 1.7em;
+    }
+ 
+    header.band {
+        background-image:url(../images/DSC_1261.jpg);
+        background-size: 100%;
+    }
+	header.band2 {
+        background-image:url(../images/DSC_0279.JPG);
+        background-size: 100%;
+    }/**/
+     
+    header.band h1 {
+        font-size: 3.25em; /*52 / 16*/
+    }
+     
+    a.button {
+        padding: 6.75em 8.5em;
+    }
+ 
+	a[rel="0"]{
+		display:none;
+	} 
+}
+
+
+/*
+.border-menu {
+  position: relative;
+  padding-left: 1.25em;
+}
+.border-menu:before {
+  content: "";
+  position: absolute;
+  top: 0.25em;
+  left: 0;
+  width: 1em;
+  height: 0.125em;
+  border-top: 0.375em double #000;
+  border-bottom: 0.125em solid #000;
+}
+*/
+/*http://webdesignerwall.com/tutorials/css-responsive-navigation-menu*/
+.nav {
+	position: relative;
+	margin: 20px 0;
+}
+.nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* right nav */
+.nav.right ul {
+	text-align: right;
+}
+
+/* center nav */
+/*.nav.center ul {
+	text-align: center;
+}
+*/
+.nav li {
+	margin: 0 5px 5px 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+.nav a {
+	padding: 3px 12px;
+	text-decoration: none;
+	color: #999;
+	line-height: 100%;
+}
+.nav a:hover {
+	color: #000;
+}
+.nav .current a {
+	background: #999;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.nav ul :click{
+	background: #fff;
+}
+
+
+
+
+#examples_outer{
+clear:both;
+/*padding:0px 30px 30px;*/
+padding:0px 0px 0px;
+}
+
+#examples_outer p{
+text-align:justify;
+}
+
+
+.c { clear: both; }
+
+.imglink0 a:link, a:visited{
+text-decoration: none;
+/*color: #89AEF2;*/
+color:#999;
+font-weight:bold;
+/*font-size:0.9em;*/
+border-bottom: 0.15em solid #000;
+}
+
+.imglink0 a:hover{
+	color:#EEE;
+	border-bottom: 0.2em solid #AAA;
+}
+
+.proj {
+border: 1px solid rgba(0, 0, 0, 0.2);
+/*padding-left:5px;
+padding-right:5px;
+padding-top:5px;
+padding-bottom:5px;*/
+/*padding:1px;*/
+margin-top:0px;
+margin-bottom:12px;
+
+-moz-border-radius:15px 15px 15px 15px;
+-webkit-border-radius:15px 15px 15px 15px;
+border-radius:15px 15px 15px 15px;
+
+box-shadow: 0 5px 5px rgba(0,0,0,0.7), inset 0px -5px 5px -5px rgba(0,0,0,0.05);
+}
+
+.proj:hover {
+	background:rgba(200,200,200,0.6);
+}
+
+.proj_inside {
+	height:150px;
+	margin:1px;
+	/*padding-left:2px;
+	padding-right:2px;*/
+	-moz-border-radius:15px 15px 0 0;
+	-webkit-border-radius:15px 15px  0 0 ;
+	border-radius:15px 15px 0 0;
+}
+
+.proj_inside_txt{
+	margin-left:20px;
+	margin-right:20px;
+	margin-bottom:10px;
+}
+
+#proj-1 {
+background: url("../images/bg_01.png");
+}
+#proj-2 {
+background: url("../images/bg_02.png");
+}
+#proj-3 {
+background: url("../images/bg_03.png");
+}
+#proj-4 {
+background: url("../images/bg_04.png");
+}
+
+.go_up{
+	visibility:visible;
+	opacity: 0.0;
+	height:10px;
+	width:25px;
+
+}
+
+.go_up:hover{ /**/
+	/*visibility:
+	background:black;*/
+	
+	opacity: 1;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-moz-border-radius:15px 15px 15px 15px;
+	-webkit-border-radius:0px 35px 5px 45px;
+	/*border-radius:10px 15px 10px 15x;*/
+	transform:rotate(-25deg);
+	box-shadow: 
+    0.45em -0.25em 0 0  #999,
+    1.15em 0.35em 0.0em 0 #444;
+	/*2.45em 0.5em 0em -0.5em #444;*/
+}
+
+.location0 {
+	width:41px;
+	height:41px;
+	background:white;
+	margin:20px 50px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-moz-border-radius:15px 15px 15px 15px;
+	-webkit-border-radius:15px 15px 15px 15px;
+	border-radius:15px 15px 15px 15px;
+}
+
+.location1 {
+	width:21px;
+	height:21px;
+	background:white;
+	margin:2px;
+	
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-moz-border-radius:10px 10px 10px 10px;
+	-webkit-border-radius:10px 10px 10px 10px;
+	border-radius:10px 10px 10px 10px;
+}
+
+#myphoto {
+/*background:#eee;*/
+background-size: contain;
+width:180px;
+padding: 20px;
+}
+.img-float-center{
+	border-radius: 50%;
+	float: center;/**/
+	padding: 5px 5px 5px 5px;
+	margin:0px 0px 0px 0px;
+}
+
+#myphoto_in {
+	-moz-border-radius:15px 15px 15px 15px;
+	-webkit-border-radius:15px 15px 15px 15px;
+	border-radius: 50%;
+	/*border-radius:15px 15px 15px 15px;*/
+}
+
+img.gray {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}
+
+/* Disable grayscale on hover */
+img.gray:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
+.box-shadow-menu {
+  visibility:hide;
+  /*position:relative;*/
+
+}
+
+@media screen and (min-width: 1201px) {
+	a[rel="na"]{
+		display:none;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	#examples_outer{
+		clear:both;
+		padding:0 0 0 0;
+	}
+
+	#slider_container_2{
+		display:none;
+	}
+
+	a.button{
+		display:none;
+	}
+	
+    header.band {
+        
+        background-size: 120%;
+    }
+
+    header.band2 {
+        
+        background-size: 240%;
+    }
+
+	a[rel="lightbox"]{
+		display:none;
+	}
+	/*#proj-1 {
+		display:none;
+		visibility: hidden;
+	}
+	#proj-2 {
+		background: url("../images/bg_02.png");
+	}
+	#proj-3 {
+		background: url("../images/bg_03.png");
+	}*/
+	
+}
+
+@media screen and (max-width: 766px) {
+
+	a[rel="lightbox-cats"]{
+		display:none;
+	}
+}
+
+@media screen and (max-width: 600px) {
+
+	.nav {
+		position: relative;
+		min-height: 40px;
+		z-index:100;
+	}	
+	.nav ul {
+		width: 36px;
+		padding: 5px 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: solid 1px #aaa;
+		background: #fff;/* url(images/icon-menu.png) no-repeat 10px 11px;*/
+		border-radius: 5px;
+		box-shadow: 0 1px 2px rgba(0,0,0,.3);
+	}
+	.nav li {
+		/*padding:10px;*/
+		display: none; /* hide all <li> items */
+		margin: 0;
+	}
+	.nav .current {
+		display: none;/*block;  show only current <li> item */
+	}
+	.nav a {
+		display: block;
+		
+		padding: 5px 5px 5px 32px;
+		text-align: left;
+	}
+	.nav .current a {
+		background: none;
+		color: #666;
+	}
+
+	/* on nav hover */
+	.nav ul:hover {
+		background-image: none;
+		
+	}
+
+	.box-shadow-menu ul:hover {
+		width:150px;
+		display: block;
+
+	}
+	.box-shadow-menu:hover{
+
+	background:#DDD;
+
+	}
+
+	.box-shadow-menu li:hover li{
+	display: block;
+	}
+		
+
+
+	.nav ul:hover + #bb.band{
+		margin-top: 10px;
+	}
+	
+	.nav ul:hover li {
+		display: block;		
+		margin: 0 0 5px;
+	}
+	.nav ul:hover.current {
+		/*background: url(images/icon-check.png) no-repeat 10px 7px;*/
+	}
+
+	.box-shadow-menu ul{
+		top:34px;
+		left: auto;
+		right: 0;
+		margin: 0 0 5px;
+		width:150px;
+	}
+	
+	/* right nav */
+	.nav.right ul {
+		left: auto;
+		right: 0;
+	}
+
+	/* center nav */
+	.nav.center ul {
+		left: 50%;
+		margin-left: -90px;
+	}
+   header.band {
+        background-image: url("../images/chengdu_01.jpg");
+        background-size: 200%;
+    }
+	.box-shadow-menu {
+	  position: relative;
+	  padding-left: 1.25em;
+	  padding-right: 2.25em;
+	  
+	}
+
+	.box-shadow-menu:before {
+	  content: "";
+	  position: absolute;
+	  left: 0.3em;
+	  right:0.2em;
+	  top: 0.50em;
+	  width: 1.6em;
+	  height: 0.30em;
+	  background: #999;
+	  box-shadow: 
+		0 0.50em 0 0 #999,
+		0 1.0em 0 0 #999;
+	}
+
+}
