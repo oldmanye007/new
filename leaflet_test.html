@@ -1,0 +1,106 @@
+<head>
+  <title>Research Locations</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+  <link rel="stylesheet" href="./leaflet_test.css"/>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+    <!-- load the d3.js library -->    	
+  <!--<script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/d3-array.v1.min.js"></script>  --> 
+  <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+  <script src="https://d3js.org/d3-fetch.v1.min.js"></script>   
+   
+  </head>
+<body>
+
+  <div id="mapid"></div>
+  <script type="text/javascript">
+
+    var mymap = L.map('mapid').setView([43.065831, -89.405218], 12); 
+    
+    
+    url  ="./leaflet_data_test.csv"
+    
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery &copy; <a href="https://www.mapbox.com/"> Mapbox</a>',
+		id: 'mapbox/satellite-v9', //'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
+  
+  
+  var marker_list = [];
+  var marker_list2 = [];
+  var png_icon = ["icons8-alpaca-64.png","icons8-axolotl-64.png","icons8-cat-64.png","icons8-dog-64.png","icons8-crane-bird-50.png", "icons8-owl-50.png", "icons8-reading-unicorn-50.png"];
+  var point_type =['a','b','c','d','e','f','g'];
+  
+  for (let step = 0; step < 5; step++) {
+    // Runs 5 times, with values of step 0 through 4.
+    let marker0 = L.marker([43.065831, -89.405218+step*0.02],{opacity:1.0-0.15*step}).addTo(mymap);
+    marker0.bindPopup("<br>Point #"+(step+1).toString()+".");
+    marker_list.push(marker0);
+  };
+  
+  
+  d3.csv(url).then(function(d) {
+      console.log(d.length);
+    
+      for(i=0;i<d.length;i++){
+
+        let ind_lookup = point_type.indexOf(d[i].type.trim());
+        //console.log(ind_lookup);
+        let png_path = "./png/"+ png_icon[ind_lookup];
+        //console.log(png_path);
+        let myIcon = L.icon({iconUrl: png_path});
+        let marker1 = L.marker([parseFloat(d[i].lat.trim()), parseFloat(d[i].lon.trim())],{icon:myIcon}).addTo(mymap);
+        marker1.bindPopup("<b>"+d[i].description.trim()+"</b>");
+        marker_list2.push(marker1);
+    
+      }
+  });
+
+  var popup = L.popup();
+
+  function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+  };
+
+  mymap.on('click', onMapClick);    
+
+  var legend = L.control({position: 'bottomleft'});
+
+  legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'legend');
+      //div.setAttribute("id", "mylegend");
+      div.style.backgroundColor = "rgba(100, 100, 150, 0.8)"; //"#222222"; //setAttribute("background-color", "#222222");
+      div.style.lineHeight = "40px";
+      div.style.font = "bold 24px arial,serif";; // "italic bold 20px arial,serif";
+      
+      //div.classList.add('myHover');
+      //div.style.backgroundopacity = 0.5;
+      for (j=0;j<7;j++){
+        div.innerHTML +=  '<img src="png/'+png_icon[j]+'" >' + point_type[j] + '<br>'
+      }
+      div.style.lineHeight = "1.6em"; //"50px";
+
+      return div;
+  };
+  
+  legend.addTo(mymap);  
+  
+  
+  </script>
+
+</body>
