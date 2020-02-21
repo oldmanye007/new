@@ -58,7 +58,7 @@
 
         let ind_lookup = point_type.indexOf(d[i].type.trim());
         //console.log(ind_lookup);
-        let png_path = "./png/"+ png_icon[ind_lookup];
+        let png_path = "png/"+ png_icon[ind_lookup];
         //console.log(png_path);
         let myIcon = L.icon({iconUrl: png_path});
         let marker1 = L.marker([parseFloat(d[i].lat.trim()), parseFloat(d[i].lon.trim())],{icon:myIcon}).addTo(mymap);
